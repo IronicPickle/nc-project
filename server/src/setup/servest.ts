@@ -23,12 +23,30 @@ export const handleError = (
   });
   console.log(`HTTP ERROR | ${status} - ${msg}`);
 };
+
+const isSocket = (req: any): req is WebSocket => {
+  return req.ping != null;
+};
+
 // deno-lint-ignore no-explicit-any
-export const respond = (req: ServerRequest, msg: string, data: any) => {
-  req.respond({
-    status: 200,
-    body: JSON.stringify({ msg, data }),
-  });
+export const respond = (
+  req: ServerRequest | WebSocket,
+  msg: string,
+  data: Record<string, unknown>
+) => {
+  if (isSocket(req)) {
+    req.send(
+      JSON.stringify({
+        status: 200,
+        body: { msg, data },
+      })
+    );
+  } else {
+    req.respond({
+      status: 200,
+      body: JSON.stringify({ msg, data }),
+    });
+  }
 };
 
 const printConfig = () => {

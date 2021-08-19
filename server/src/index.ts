@@ -1,23 +1,14 @@
+import { createRouter } from "https://deno.land/x/servest@v1.3.4/router.ts";
 import "./environments/config.ts"; // Config MUST be imported first
 import "./setup/mysql.ts";
 import "./setup/servest.ts";
-import servest, { getJson, respond } from "./setup/servest.ts";
+import servest from "./setup/servest.ts";
 
-type User = {
-  id: number;
-  name: string;
-  age: number;
+const usersRoute = () => {
+  const router = createRouter();
+
+  return router;
 };
 
-const users: User[] = [];
-
-servest.post("/user/add", async (req) => {
-  const body = await getJson<User>(req);
-  if (body) users.push(body);
-
-  respond(req, "Successfully added user", body);
-});
-
-servest.get("/users", (req) => {
-  respond(req, "Success", users);
-});
+servest.route("/api", usersRoute());
+servest.route("/api/ws", usersRoute());

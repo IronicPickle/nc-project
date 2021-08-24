@@ -1,23 +1,15 @@
 <script lang="ts">
-  import Test from "./components/test.svelte";
-  import config from "./environments/config";
+  import {setContext} from "svelte";
 
-  export let name: string;
+  import NavDrawer from "./components/layout/NavDrawer.svelte";
+  import Main from "./components/Main.svelte";
 
-  const socket = new WebSocket(`${config.apiWsUrl}`);
-
-  socket.addEventListener("open", (event) => {
-    socket.send("Client to server");
-  });
-
-  socket.addEventListener("message", (event) => {
-    console.log(event.data);
-  });
+  setContext("user", null);
 </script>
 
 <main>
-  <h1>Hello {name}!</h1>
-  <Test />
+  <NavDrawer />
+  <Main />
 </main>
 
 <style lang="scss">

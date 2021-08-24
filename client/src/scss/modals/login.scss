@@ -1,0 +1,20 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .title {
+    font-family: Current;
+    margin-top: 8px;
+
+    color: $dark-gray;
+    font-size: 24px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+}

@@ -6,13 +6,14 @@ const chat = () => {
 
   router.ws("/", async (socket) => {
     for await (const msg of socket) {
-      //respond(socket, "Success", {});
       if (typeof msg === "string") {
+        respond(socket, "Server to client", {});
         console.log(msg);
-        socket.send("Server to client");
       }
     }
   });
+
+  return router;
 };
 
 export default chat;

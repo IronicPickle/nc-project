@@ -1,7 +1,38 @@
-h1 {
-  color: red;
+@import "./vars.scss";
+
+@font-face {
+  font-family: Mulish;
+  src: url("/fonts/Mulish-Regular.ttf");
 }
 
-h2 {
-  color: blue;
+@font-face {
+  font-family: Mulish-Light;
+  src: url("/fonts/Mulish-Light.ttf");
+}
+
+@font-face {
+  font-family: Mulish-Bold;
+  src: url("/fonts/Mulish-Bold.ttf");
+}
+
+@font-face {
+  font-family: Mulish-Italic;
+  src: url("/fonts/Mulish-Italic.ttf");
+}
+
+@font-face {
+  font-family: Current;
+  src: url("/fonts/Current-Regular.otf");
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-family: Mulish, sans-serif;
 }

@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "sass": "^1.38.0",
-    "sirv-cli": "^1.0.0"
+    "sirv-cli": "^1.0.0",
+    "svelte-icons": "^2.1.0"
   }
 }

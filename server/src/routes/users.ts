@@ -9,6 +9,8 @@ const users = () => {
     console.log({ body });
     respond(req, "Success", {});
   });
+
+  return router;
 };
 
 export default users;

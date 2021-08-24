@@ -1,0 +1,19 @@
+.input {
+  border: 1px solid $purple;
+  padding: 8px;
+  border-radius: 8px;
+  box-sizing: border-box;
+
+  text-align: center;
+
+  transition: border-color 300ms ease;
+
+  &:hover {
+    border-color: $dark-gray;
+  }
+
+  &:focus {
+    border-width: 2px;
+    padding: 7px;
+  }
+}

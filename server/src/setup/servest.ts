@@ -1,5 +1,6 @@
 import { createApp, ServerRequest } from "https://deno.land/x/servest/mod.ts";
 import config from "../environments/config.ts";
+import { WebSocket } from "https://deno.land/std@0.100.0/ws/mod.ts";
 
 export const getJson = async <User>(req: ServerRequest) => {
   let body: User | null;
@@ -24,11 +25,10 @@ export const handleError = (
   console.log(`HTTP ERROR | ${status} - ${msg}`);
 };
 
-const isSocket = (req: any): req is WebSocket => {
-  return req.ping != null;
+const isSocket = (req: ServerRequest | WebSocket): req is WebSocket => {
+  return (req as any).send != null;
 };
 
-// deno-lint-ignore no-explicit-any
 export const respond = (
   req: ServerRequest | WebSocket,
   msg: string,

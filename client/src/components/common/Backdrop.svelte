@@ -12,6 +12,6 @@
 {/if}
 
 <style lang="scss">
-  @import "src/scss/index.scss";
-  @import "src/scss/common/backdrop.scss";
+  @import "../../scss/index.scss";
+  @import "../../scss/common/backdrop.scss";
 </style>

@@ -1,0 +1,22 @@
+.button {
+  border: 1px solid $purple;
+  padding: 8px;
+  border-radius: 8px;
+  box-sizing: border-box;
+
+  background-color: $purple;
+
+  color: $white;
+  text-align: center;
+
+  transition: background-color 300ms ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $dark-purple;
+  }
+
+  &:active {
+    background-color: $purple;
+  }
+}

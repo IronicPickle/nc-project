@@ -49,6 +49,6 @@
 </div>
 
 <style lang="scss">
-  @import "src/scss/index.scss";
-  @import "src/scss/layout/navDrawer.scss";
+  @import "../../scss/index.scss";
+  @import "../../scss/layout/navDrawer.scss";
 </style>

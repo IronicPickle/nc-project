@@ -16,6 +16,6 @@
 {/if}
 
 <style lang="scss">
-  @import "src/scss/index.scss";
-  @import "src/scss/modals/modal.scss";
+  @import "../../scss/index.scss";
+  @import "../../scss/modals/modal.scss";
 </style>

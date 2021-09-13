@@ -9,7 +9,8 @@
   transition: border-color 300ms ease;
 
   &:hover {
-    border-color: $dark-gray;
+    border-width: 2px;
+    padding: 7px;
   }
 
   &:focus {

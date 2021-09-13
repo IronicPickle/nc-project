@@ -10,6 +10,6 @@
 </Modal>
 
 <style lang="scss">
-  @import "src/scss/index.scss";
-  @import "src/scss/modals/register.scss";
+  @import "../../scss/index.scss";
+  @import "../../scss/modals/register.scss";
 </style>

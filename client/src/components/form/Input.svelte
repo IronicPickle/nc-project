@@ -2,9 +2,9 @@
   export let value = "";
 </script>
 
-<input bind:value {...$$props} class="input" />
+<input bind:value {...$$props} class="field input" />
 
 <style lang="scss">
-  @import "src/scss/index.scss";
-  @import "src/scss/form/input.scss";
+  @import "../../scss/index.scss";
+  @import "../../scss/form/input.scss";
 </style>

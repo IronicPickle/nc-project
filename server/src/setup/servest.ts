@@ -2,8 +2,10 @@ import { createApp, ServerRequest } from "https://deno.land/x/servest/mod.ts";
 import config from "../environments/config.ts";
 import { WebSocket } from "https://deno.land/std@0.100.0/ws/mod.ts";
 
-export const getJson = async <User>(req: ServerRequest) => {
-  let body: User | null;
+import { Response } from "../../../common/apiSchemas/utils.ts";
+
+export const getJson = async <B>(req: ServerRequest) => {
+  let body: B | null;
   try {
     body = await req.json();
   } catch (_err) {
@@ -31,20 +33,18 @@ const isSocket = (req: ServerRequest | WebSocket): req is WebSocket => {
 
 export const respond = (
   req: ServerRequest | WebSocket,
-  msg: string,
-  data: Record<string, unknown>
+  msg: Response["msg"],
+  data?: Response["data"]
 ) => {
+  const body: Response = { msg };
+  if (data != null) body.data = data;
+
   if (isSocket(req)) {
-    req.send(
-      JSON.stringify({
-        status: 200,
-        body: { msg, data },
-      })
-    );
+    req.send(JSON.stringify(body));
   } else {
     req.respond({
       status: 200,
-      body: JSON.stringify({ msg, data }),
+      body: JSON.stringify(body),
     });
   }
 };

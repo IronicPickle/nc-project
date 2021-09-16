@@ -1,4 +1,4 @@
-import type {Config} from "./config";
+import type { Config } from "./config";
 
 export default {
   apiUrl: "http://localhost:4000/api",

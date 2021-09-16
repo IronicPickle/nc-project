@@ -1,10 +1,9 @@
 <script lang="ts">
-import api from "../../utils/api";
+  import { auth } from "../../utils/api";
 
   import Button from "../form/Button.svelte";
   import Input from "../form/Input.svelte";
   import Modal from "./Modal.svelte";
-
 
   export let active = false;
   export let onClose = () => {};
@@ -14,7 +13,7 @@ import api from "../../utils/api";
 
   const onSubmit = (event: Event) => {
     event.preventDefault();
-    api.get("/login");
+    auth.login({ username, password });
   };
 </script>
 
@@ -27,11 +26,9 @@ import api from "../../utils/api";
         <Input bind:value={password} placeholder="Password" />
       </div>
 
-
       <div class="buttons">
         <Button type="submit">Submit</Button>
         <Button onClick={onClose}>Cancel</Button>
-
       </div>
     </form>
   </div>

@@ -1,7 +1,11 @@
-interface Structure {
+export interface Response {
+  msg: string;
+  data?: any;
+}
+export interface Structure {
   params?: any;
   body?: any;
-  res?: any;
+  res?: Response;
 }
 
 export type Params<P extends Structure> = P["params"];

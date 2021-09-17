@@ -12,4 +12,7 @@ export interface Login extends Structure {
       token: number;
     };
   };
+  errorRes: {
+    msg: string;
+  };
 }

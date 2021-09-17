@@ -10,7 +10,7 @@ const users = () => {
     const body = await getJson<BackendBody<Login>>(req);
     if (body == null) return;
     if (body.username !== "admin" || body.password !== "password")
-      handleError(req, 401, "Invalid Credidentials");
+      return handleError(req, 401, "Invalid Credidentials");
     respond(req, "Success", { token: 12345 });
   });
 

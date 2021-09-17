@@ -21,8 +21,8 @@ export const handleError = (
   msg: string
 ) => {
   req.respond({
-    status: 400,
-    body: "Could not parse data",
+    status,
+    body: JSON.stringify({ msg: "Could not parse data" }),
   });
   console.log(`HTTP ERROR | ${status} - ${msg}`);
 };

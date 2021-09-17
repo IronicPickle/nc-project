@@ -8,7 +8,8 @@ export interface Config {
   apiWsUrl: string;
 }
 
-const environment = process["env"].NODE_ENV || "development";
+declare const process: any;
+const environment = process.env.NODE_ENV || "development";
 
 switch (environment) {
   case "development":

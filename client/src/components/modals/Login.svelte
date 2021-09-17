@@ -1,5 +1,9 @@
 <script lang="ts">
-  import { auth } from "../../utils/api";
+  import type { Login } from "../../../../common/apiSchemas/auth";
+
+  import type { ErrorRes } from "../../../../common/apiSchemas/utils";
+
+  import { auth, isAxiosError } from "../../utils/api";
 
   import Button from "../form/Button.svelte";
   import Input from "../form/Input.svelte";
@@ -11,9 +15,16 @@
   let username = "";
   let password = "";
 
-  const onSubmit = (event: Event) => {
+  const onSubmit = async (event: Event) => {
     event.preventDefault();
-    auth.login({ username, password });
+    try {
+      const res = await auth.login({ username, password });
+      onClose();
+    } catch (err: unknown) {
+      if (isAxiosError<ErrorRes<Login>>(err)) {
+        alert(err.response.data.msg);
+      }
+    }
   };
 </script>
 

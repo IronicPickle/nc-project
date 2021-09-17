@@ -30,4 +30,12 @@ try {
   );
 }
 
+const setupTables = async () => {
+  await mysql.execute(`CREATE TABLE IF NOT EXISTS Users {
+    ID: INTEGER PRIMARY KEY AUTO_INCREMENT,
+    Username: VARCHAR(255),
+    Password: VARCHAR(255),
+  }`);
+};
+
 export default mysql;

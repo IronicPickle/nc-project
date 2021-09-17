@@ -6,6 +6,14 @@ import { Login } from "../../../common/apiSchemas/auth.ts";
 const users = () => {
   const router = createRouter();
 
+  router.post("/register", async (req) => {
+    const body = await getJson<BackendBody<Login>>(req);
+    if (body == null) return;
+    if (typeof body.username !== "string" || typeof body.password !== "string")
+      return handleError(req, 401, "Invalid Credidentials");
+    respond(req, "Success", { token: 12345 });
+  });
+
   router.post("/login", async (req) => {
     const body = await getJson<BackendBody<Login>>(req);
     if (body == null) return;
